@@ -551,13 +551,21 @@
         font-size: 1rem;
       }
 
-      /* 見出しがはみ出さないようにブロック表示に変更 */
+      /* 見出しがはみ出さないようにブロック表示＋折り返しを許可 */
       .section__title {
         display: block;
         max-width: 100%;
       }
 
+      /* スマホでは日本語見出しを折り返せるようにする（keep-allを上書き） */
+      h1, h2, h3 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* グリッド列が文字幅に引っ張られて広がらないよう制限 */
       .about__content { grid-template-columns: 1fr; }
+      .about__content > div { min-width: 0; }
 
       /* プロフィールを縦並びに戻してはみ出しを防ぐ */
       .about__profile {
